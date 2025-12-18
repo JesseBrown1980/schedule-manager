@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply bg-gradient-to-b from-slate-50 via-purple-50/30 to-indigo-50/50 min-h-screen;
+  font-family: "Outfit", system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}
+
+/* Focus styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* Hide scrollbar but keep scroll (for horizontal week strip) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Visible scrollbar for Radix Select dropdowns */
+[data-radix-select-viewport] {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #cbd5e1 #f1f5f9; /* Firefox - thumb and track */
+}
+
+[data-radix-select-viewport]::-webkit-scrollbar {
+  width: 6px;
+}
+
+[data-radix-select-viewport]::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+[data-radix-select-viewport]::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+[data-radix-select-viewport]::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Form input styles */
+input,
+select,
+textarea {
+  @apply transition-all duration-200;
+}
+
+/* Card gradient backgrounds */
+.card-gradient-1 {
+  background: linear-gradient(to bottom, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.card-gradient-2 {
+  background: linear-gradient(to bottom, #6366f1 0%, #4f46e5 100%);
+}
+
+.card-gradient-3 {
+  background: linear-gradient(to bottom, #ec4899 0%, #db2777 100%);
+}
+
+.card-gradient-4 {
+  background: linear-gradient(to bottom, #14b8a6 0%, #0d9488 100%);
+}
+
+/* Timeline ruler + dot */
+.timeline-ruler {
+  width: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to bottom,
+    #e5e7eb 0%,
+    #f3f4f6 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+}
+
+/* Staggered animation delays */
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+/* Toast animations */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-in {
+  animation: slideInFromRight 0.3s ease-out forwards;
+}
+
+.animate-out {
+  animation: slideOutToRight 0.2s ease-in forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.slide-in-from-right {
+  animation-name: slideInFromRight;
+}
+
+.slide-out-to-right {
+  animation-name: slideOutToRight;
+}
